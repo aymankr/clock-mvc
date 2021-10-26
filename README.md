@@ -9,4 +9,4 @@
 - cc5 gère les mises à jours des minutes.
 - cc6 gère les mises à jours des minutes et des heures.
 
-4- Un objet de la classe ClockController gère la mise des heures, des minutes et des secondes.  
+4- Un objet de la classe ClockController gère la mise à jour des heures, des minutes et des secondes.  
