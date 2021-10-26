@@ -7,4 +7,7 @@ public class ClockException extends Exception {
 	public ClockException (String m) {
 		super(m);
 	}
+	public ClockException (){
+		super("Le temps donné n'est pas valide.");
+	}
 }

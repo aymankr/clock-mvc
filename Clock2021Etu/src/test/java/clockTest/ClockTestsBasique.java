@@ -19,7 +19,7 @@ public class ClockTestsBasique {
 
 	
 	// initialisation des variables controller controller.
-		//annotation "@Before" : la m�thode initial() est ex�cut�e avant les tests
+		//annotation "@Before" : la méthode initial() est ex�cut�e avant les tests
 		@Before
 		public void initial() {
 			model = new ClockModel(0,0,0);
