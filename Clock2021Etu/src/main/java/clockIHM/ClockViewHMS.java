@@ -25,7 +25,7 @@ public class ClockViewHMS extends ClockView {
 			@Override
 			public void handle(ActionEvent event) {
 				//myModel.addHourObserver();
-		});
+			});
 	}
 
 	@Override
