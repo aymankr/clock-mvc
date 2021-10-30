@@ -30,7 +30,7 @@ public class ClockModel  extends Observable {
 		System.out.println("Model - setHour");
 		if (hour < ClockModel.MIN_TIME) throw new ClockException();
 	    if (hour >= ClockModel.MAX_HOUR) throw new ClockException();
-	    this.minute.setValue(hour);
+	    this.hour.setValue(hour);
 	    }
 
 	public int getMinute() {	
@@ -60,5 +60,9 @@ public class ClockModel  extends Observable {
 	public void addMinuteObserver(ChangeListener<Number> c1) {minute.addListener(c1);}
 	public void addSecondObserver(ChangeListener<Number> c1) {second.addListener(c1);}
 	
+	@Override 
+	public String toString(){
+		return hour +":"+ minute + ":" + second;
+	}
 	
 }

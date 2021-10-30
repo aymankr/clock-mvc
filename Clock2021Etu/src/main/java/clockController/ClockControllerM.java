@@ -10,8 +10,9 @@ public class ClockControllerM extends ClockControllerDecorator {
 	@Override
 	public void setMinute(int minute){
 		int m = minute % ClockModel.MAX_MINSEC;
-        if (m < ClockModel.MAX_MINSEC){
+        if (m < ClockModel.MIN_TIME){
             m += ClockModel.MAX_MINSEC;
+            incHour(-1);
         }
         try { 
             myController.getModel().setMinute(m);
@@ -20,6 +21,7 @@ public class ClockControllerM extends ClockControllerDecorator {
         } 
         int mh = minute/ClockModel.MAX_MINSEC;
         if (mh > 0) incHour(mh);
+        System.out.println(myModel);
 	}
 	
 	@Override

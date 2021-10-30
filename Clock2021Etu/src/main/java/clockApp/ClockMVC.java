@@ -18,8 +18,9 @@ public class ClockMVC extends Application {
 		public void start(Stage stage) {
 			ClockModel m = new ClockModel(10,0,0);
 			ClockController c = new ClockController(m);
-			//c.start();
+			c.start();
 			// 5 fenetres a creer
+			/*
 			ClockView vh = 
 				new ClockViewButtonHour("VOTRE_NOM - Hour", m, c, 200, 100);
 			ClockView vm = 
@@ -28,7 +29,7 @@ public class ClockMVC extends Application {
 				new ClockViewButtonSecond("VOTRE_NOM - Second", m,c, 200, 300);	
 			ClockView va =	new ClockViewLess("VOTRE_NOM - Less",m,c, 500, 100);
 			ClockView vmo =	new ClockViewMore("VOTRE_NOM - More",m,c, 500, 300);
+			*/
 			
-		
 		}
 }

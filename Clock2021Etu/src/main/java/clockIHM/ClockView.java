@@ -32,5 +32,5 @@ public abstract class ClockView extends Stage implements ChangeListener<Number> 
 		show();
 	}
 
-
+	abstract public void start(Stage stage);
 }
