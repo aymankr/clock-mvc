@@ -24,7 +24,7 @@ public class ClockControllerS extends ClockControllerDecorator {
 		int sm = second / ClockModel.MAX_MINSEC;
 		if (sm > 0) {
 			incMinute(sm);
-		}
+		} else if (sm < 0) incMinute(sm);
 		System.out.println(myModel);
 	}
 	

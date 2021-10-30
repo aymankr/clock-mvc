@@ -62,7 +62,7 @@ public class ClockModel  extends Observable {
 	
 	@Override 
 	public String toString(){
-		return hour +":"+ minute + ":" + second;
+		return hour.getValue().toString() +"h:"+ minute.getValue().toString() + "m:" + second.getValue().toString() + "s";
 	}
 	
 }
