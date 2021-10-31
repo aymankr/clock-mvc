@@ -34,11 +34,11 @@ public class ClockController extends ClockControllerDecorator {
 			myModel.addSecondObserver(va);
 			myModel.addSecondObserver(vmo);
 			
-			vh.start(vh);
-			vm.start(vm);
-			vs.start(vs);
-			va.start(va);
-			vmo.start(vmo);
+			vh.start();
+			vm.start();
+			vs.start();
+			va.start();
+			vmo.start();
 	}
 
 

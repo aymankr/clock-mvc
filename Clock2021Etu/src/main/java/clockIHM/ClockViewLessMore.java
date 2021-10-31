@@ -74,8 +74,8 @@ public class ClockViewLessMore extends ClockView {
 	}
 	
 	@Override 
-	public void start (Stage stage){
-		layout(stage);
+	public void start (){
+		layout(this);
 	}
 
 	@Override

@@ -1,14 +1,3 @@
-/.classpath
-/.project
-/Clock2021Etu/
-/ClockException$ClockControllerH.class
-/ClockException.class
-/Horloge.class
-/README.md
-/clockApp/
-/clockController/
-/clockException/
-/clockIHM/
-/clockModel/
-/clockTest/
 /META-INF/
+/clockIHM/
+/clockController/
