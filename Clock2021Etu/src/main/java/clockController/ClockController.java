@@ -24,15 +24,20 @@ public class ClockController extends ClockControllerDecorator {
 			ClockView vs = 
 				new ClockViewHMS("Seconde - Kachmar Leonelli", myModel, this, 200, 300, 1);
 			
-			ClockView va =	new ClockViewLessMore("Kachmar Leonelli - Less",myModel, this, 500, 100, "-");
-			ClockView vmo =	new ClockViewLessMore("Kachmar Leonelli - More",myModel, this, 500, 300, "+");
+			ClockView va =	new ClockViewLessMore("Kachmar Leonelli - Less",myModel, this, 500, 100, -1);
+			ClockView vmo =	new ClockViewLessMore("Kachmar Leonelli - More",myModel, this, 500, 300, 1);
 			
 			myModel.addHourObserver(vh);
 			myModel.addMinuteObserver(vm);
 			myModel.addSecondObserver(vs);
 			
 			myModel.addSecondObserver(va);
+			myModel.addMinuteObserver(va);
+			myModel.addHourObserver(va);
+			
 			myModel.addSecondObserver(vmo);
+			myModel.addMinuteObserver(vmo);
+			myModel.addHourObserver(vmo);
 			
 			vh.start();
 			vm.start();

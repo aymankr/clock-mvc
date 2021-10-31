@@ -1,5 +1,6 @@
 package clockController;
 
+import clockException.ClockException;
 import clockModel.ClockModel;
 
 public class ClockControllerH extends ClockControllerDecorator {
@@ -17,7 +18,7 @@ public class ClockControllerH extends ClockControllerDecorator {
 		try {
 			myController.getModel().setHour(h);
 		}
-		catch (Exception e) { 
+		catch (ClockException e) { 
 			System.err.println(e); 
 		}
 	}

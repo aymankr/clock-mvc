@@ -31,6 +31,10 @@ public abstract class ClockView extends Stage implements ChangeListener<Number> 
 		setOnCloseRequest(e-> Platform.exit());
 		show();
 	}
+	
+	abstract protected void layout();
 
-	abstract public void start();
+	public void start(){
+		layout();
+	}
 }

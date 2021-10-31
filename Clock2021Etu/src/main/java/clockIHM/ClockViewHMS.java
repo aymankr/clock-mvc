@@ -78,7 +78,7 @@ public class ClockViewHMS extends ClockView {
 		}
 	}
 	
-	public BorderPane createContent() {
+	private BorderPane createContent() {
 		BorderPane border = new BorderPane();
 		border.setBottom(createButtons());
 		Label text = new Label(String.valueOf(time));
@@ -86,20 +86,20 @@ public class ClockViewHMS extends ClockView {
 		return border;
 	}
 	
-	public void layout(Stage stage){
-		stage.setScene(new Scene(createContent()));
-		stage.show();
+	protected void layout(){
+		this.setScene(new Scene(createContent()));
+		this.show();
 	}
 	
 	@Override 
 	public void start (){
-		layout(this);
+		layout();
 	}
 
 	@Override
 	public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
 		changeTime();
-		layout(this);
+		layout();
 	}
 
 }

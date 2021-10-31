@@ -15,11 +15,11 @@ import javafx.stage.Stage;
 
 public class ClockViewLessMore extends ClockView {
 
-	private String sign;
+	private final int factor;
 	
-	public ClockViewLessMore(String label, ClockModel tm, ClockController tc, int posX, int posY, String sign) {
+	public ClockViewLessMore(String label, ClockModel tm, ClockController tc, int posX, int posY, int factor) {
 		super(label, tm, tc, posX, posY);
-			this.sign = sign;
+			this.factor = factor;
 	}
 	
 	
@@ -27,11 +27,9 @@ public class ClockViewLessMore extends ClockView {
 		HBox hbox = new HBox(10);
 		hbox.setStyle("-fx-background-color: BLUE;");
 		hbox.setAlignment(Pos.BOTTOM_CENTER);
-		Button button1000 = new Button(sign + "1000s");
-		Button button100 = new Button(sign + "100s");
-		Button button10 = new Button(sign + "10s");
-		
-		int factor = signToInt();
+		Button button1000 = factor == -1 ? new Button( "-1000s") : new Button("+1000s");
+		Button button100 = factor == -1 ? new Button( "-100s") : new Button("+100s");
+		Button button10 = factor == -1 ? new Button( "-10s") : new Button("+10s");
 		
 		button1000.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -52,15 +50,8 @@ public class ClockViewLessMore extends ClockView {
 		hbox.getChildren().addAll(button1000, button100, button10);
 		return hbox;
 	}
-
-	private int signToInt() {
-		if (sign.equals("-")) {
-			return -1;
-		}
-		return 1;
-	}
 	
-	public BorderPane createContent() {
+	private BorderPane createContent() {
 		BorderPane border = new BorderPane();
 		border.setBottom(createButtons());
 		Label text = new Label(this.myModel.toString());
@@ -68,18 +59,18 @@ public class ClockViewLessMore extends ClockView {
 		return border;
 	}
 	
-	public void layout(Stage stage){
-		stage.setScene(new Scene(createContent()));
-		stage.show();
+	protected void layout(){
+		this.setScene(new Scene(createContent()));
+		this.show();
 	}
 	
 	@Override 
 	public void start (){
-		layout(this);
+		layout();
 	}
 
 	@Override
 	public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-		layout(this);
+		layout();
 	}
 }
