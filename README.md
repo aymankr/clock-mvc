@@ -13,17 +13,8 @@ __Horloge 2:__
 - cc5 gère les mises à jours des minutes.
 - cc6 gère les mises à jours des minutes et des heures.
 
-4- Un objet de la classe ClockController gère la mise à jour des heures, des minutes et des secondes.  
+4- Un objet de la classe ClockController gère la mise à jour des heures, des minutes et des secondes. 
 
----
+Q6- Diagramme de communication :
 
-__Liste des événemments externes :__  
-
-- button +,
-- button -,
-- button +1000s,
-- button +100s,
-- button +10s,
-- button -1000s,
-- button -100s,
-- button -10s,
+![diagrammeCommunication](diagramme1.drawio.png)
