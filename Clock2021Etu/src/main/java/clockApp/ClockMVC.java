@@ -2,7 +2,6 @@ package clockApp;
 
 
 import clockController.ClockController;
-import clockIHM.*;
 import clockModel.ClockModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
