@@ -4,6 +4,7 @@ package clockIHM;
 
 import clockController.ClockController;
 import clockModel.ClockModel;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -20,6 +22,7 @@ import javafx.stage.Stage;
 public class ClockViewHMS extends ClockView {
 	private final int unite;
 	private int time;
+	private TextField textBox;
 
 	public ClockViewHMS(String label, ClockModel tm, ClockController tc, int posX, int posY, int unite) {
 		super(label, tm, tc, posX, posY);
@@ -60,7 +63,13 @@ public class ClockViewHMS extends ClockView {
 			public void handle(ActionEvent event) {
 				incTime(-1);
 			}});
-		hbox.getChildren().addAll(buttonPlus, buttonMoins);
+		Button buttonEnter = new Button("Entrer");
+		buttonEnter.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				setTime(Integer.parseInt(textBox.getText()));
+			}});
+		hbox.getChildren().addAll(buttonPlus, buttonMoins, buttonEnter);
 		return hbox;
 	}
 	
@@ -78,11 +87,37 @@ public class ClockViewHMS extends ClockView {
 		}
 	}
 	
+	private void setTime(int t){
+		switch (unite){
+		case 1:
+			myController.setSecond(t);
+			break;
+		case 60:
+			myController.setMinute(t);
+			break;
+		case 3600:
+			myController.setHour(t);
+			break;
+		}
+	}
+	
 	private BorderPane createContent() {
 		BorderPane border = new BorderPane();
 		border.setBottom(createButtons());
 		Label text = new Label(String.valueOf(time));
-		border.setTop(text);
+		textBox = new TextField(String.valueOf(time));
+		textBox.getText();
+		// force the field to be numeric only
+		//on a trouvé ça sur internet c'est pour forcer l'écriture d'un entier.
+		textBox.textProperty().addListener(new ChangeListener<String>() {
+		    @Override
+		    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		        if (!newValue.matches("\\d*")) {
+		            textBox.setText(newValue.replaceAll("[^\\d]", ""));
+		        }
+		    }
+		});
+		border.setTop(textBox);
 		return border;
 	}
 	
