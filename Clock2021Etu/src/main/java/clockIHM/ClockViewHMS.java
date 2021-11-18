@@ -104,7 +104,6 @@ public class ClockViewHMS extends ClockView {
 	private BorderPane createContent() {
 		BorderPane border = new BorderPane();
 		border.setBottom(createButtons());
-		Label text = new Label(String.valueOf(time));
 		textBox = new TextField(String.valueOf(time));
 		textBox.getText();
 		// force the field to be numeric only
